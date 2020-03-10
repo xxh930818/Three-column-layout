@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>三栏布局中间固定</title>
+    <style media="screen">
+        html *{
+            padding: 0;
+            margin: 0;
+        }
+        .layout article div{
+            min-height: 100px;
+        }
+    </style>
+</head>
+<body>
+<!--浮动布局  -->
+<section class="layout float">
+    <style media="screen">
+        #left_self,#right_self {
+            background-color: #ffe6b8;
+            width: calc((100% - 500px) /2);
+        }
+        #left_self {float: left;}
+        #right_self{float: right;}
+        #center_self{ background-color: #a0b3d6}
+    </style>
+    <h1>浮动布局</h1>
+    <article>
+        <div id='left_self'>我是左边</div>
+        <div id='right_self'>我是右边</div>
+        <div id="center_self">我是中间</div>
+    </article>
+</section>
+
+<!-- 绝对布局 -->
+<section class="layout absolute">
+    <style>
+        #left,#right{
+            background-color: #ffe6b8;
+            width: calc((100% - 500px) /2);
+            position: absolute;
+        }
+        #left{left:0px;}
+        #right{right: 0px;}
+        #center{background-color: #eee; }
+    </style>
+    <h1>绝对布局</h1>
+    <article>
+        <div id="left">我是左边</div>
+        <div id="right">我是右边</div>
+        <div id="center">我是中间</div>
+    </article>
+</section>
+
+<!-- flexbox布局 -->
+<section class="layout flexbox">
+    <style>
+        .layout.flexbox .left-center-right{
+            display: -webkit-flex;
+            display: -moz-flex;
+            display: -o-flex;
+            display: -ms-flex;
+            display: flex;
+        }
+        .layout.flexbox .left{
+            flex:1;
+            background: red;
+        }
+        .layout.flexbox .center{
+            background: yellow;
+            width: 500px;
+        }
+        .layout.flexbox .right{
+            flex:1;
+            background: blue;
+        }
+    </style>
+    <h1>flexbox布局</h1>
+    <article class="left-center-right">
+        <div class="left">我是左边</div>
+        <div class="center">我是中间</div>
+        <div class="right">我是右边</div>
+    </article>
+</section>
+
+<!-- 网格布局 -->
+<section class="layout grid">
+    <style>
+        .layout.grid .left-center-right{
+            width: 100%;
+            display: grid;
+            grid-template-rows: 100px;
+            grid-template-columns: auto 500px auto;
+        }
+        .layout.grid .left{
+            background: red;
+        }
+        .layout.grid .center{
+            background: yellow;
+        }
+        .layout.grid .right{
+            background: blue;
+        }
+    </style>
+    <h1>网格布局</h1>
+    <article class="left-center-right">
+        <div class="left"></div>
+        <div class="center"></div>
+        <div class="right"></div>
+    </article>
+</section>
+</body>
+</html>
